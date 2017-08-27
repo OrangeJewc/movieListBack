@@ -18,8 +18,7 @@
   $description = $_GET['description'];
   $userId = $_GET['userId'];
 
-  $sql = "INSERT INTO list(name, description, userId)
-          VALUES($name, $description, $userId";
+  $sql = "INSERT INTO list(name, description, userId) VALUES($name, $description, $userId";
   
   if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
