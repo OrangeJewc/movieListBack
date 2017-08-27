@@ -1,0 +1,3 @@
+DROP TABLE movie;
+DROP TABLE list;
+DROP TABLE user;
