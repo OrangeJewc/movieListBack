@@ -14,7 +14,11 @@
       die("Connection failed: " . $conn->connect_error);
   }
 
-  $test = $_GET['name'];
+  $title = $_GET['title'];
+  $id = $_GET['id'];
+  $overview = $_GET['overview'];
+  $listId = $_GET['listId'];
+
   // $sql = "SELECT * FROM user";
   // $result = $conn->query($sql);
   // $rows = array();
@@ -29,6 +33,6 @@
   // } else {
   //     echo "0 results";
   // }
-  echo $test;
+  echo $id;
   $conn->close();
 ?>
