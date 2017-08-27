@@ -14,8 +14,8 @@
       die("Connection failed: " . $conn->connect_error);
   }
 
-  $name = $_GET['name'];
-  $description = $_GET['description'];
+  $name = (string)$_GET['name'];
+  $description = (string)$_GET['description'];
   $userId = $_GET['userId'];
 
   $sql = "INSERT INTO list(name, description, userId) VALUES($name, $description, $userId";
