@@ -1,4 +1,4 @@
-<!--mysql://b5ac5b817c6f25:1f694a81@us-cdbr-iron-east-05.cleardb.net/heroku_0367002a81476ef?reconnect=true-->
+
 <?php
   header("Access-Control-Allow-Origin: *");
   $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
@@ -22,7 +22,7 @@
       // output data of each row
       while($row = $result->fetch_assoc()) {
           // echo "id: " . $row["id"]. " - Name: " . $row["name"]. "<br>";
-        $rows['object_name'][] = $row;   
+        $rows[] = $row;   
       }
     echo json_encode($rows);
   } else {
