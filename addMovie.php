@@ -1,5 +1,6 @@
 <?php
   header("Access-Control-Allow-Origin: *");
+  header("Access-Control-Allow-Headers: *");
   $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
   $server = $url["host"];
