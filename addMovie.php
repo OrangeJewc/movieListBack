@@ -14,7 +14,7 @@
       die("Connection failed: " . $conn->connect_error);
   }
 
-  $test = $_POST['name'];
+  $test = $_GET['name'];
   // $sql = "SELECT * FROM user";
   // $result = $conn->query($sql);
   // $rows = array();
