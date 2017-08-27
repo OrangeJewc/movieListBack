@@ -15,13 +15,15 @@ if ($conn->connect_error) {
 
 $sql = "SELECT * FROM user";
 $result = $conn->query($sql);
+$rows = array();
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         // echo "id: " . $row["id"]. " - Name: " . $row["name"]. "<br>";
-        echo json_encode($row);
+      $rows['object_name'][] = $row;   
     }
+  echo json_encode($rows);
 } else {
     echo "0 results";
 }
