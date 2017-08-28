@@ -33,7 +33,7 @@
       
       if($movieResult->num_rows > 0) {
         while($movie = $result->fetch_assoc()) {
-          $rows['movies'][] = $movie;
+          $rows[]['movies'] = $movie;
         }
       }
     }
