@@ -27,8 +27,8 @@
   if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
       // $rows[] = $row;
-      echo $row['id'];
-      $movieSql = "SELECT m.* from movie m, list l, user u where m.listId = l.id and l.userId = u.id"; 
+      $id = $row['id'];
+      $movieSql = "SELECT m.* from movie m, list l, user u where m.listId = $id and l.userId = u.id"; 
       $movieResult = $conn->query($movieSql);
       
       if($movieResult->num_rows > 0) {
@@ -38,7 +38,7 @@
       }
       $rows[] = $row;
     }
-    // echo json_encode($rows);
+    echo json_encode($rows);
   } else {
     echo "0 results";
   }
