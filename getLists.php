@@ -38,7 +38,7 @@
       }
       $rows[] = $row;
     }
-    echo json_encode($rows);
+    // echo json_encode($rows);
   } else {
     echo "0 results";
   }
