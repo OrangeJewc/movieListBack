@@ -13,19 +13,33 @@
       die("Connection failed: " . $conn->connect_error);
   }
 
+  $rows = array();
+  $listId = 1;
+
+  if(isset($_GET('listId')))
+    $listId = $_GET('listId');
+
   $sql = "SELECT * FROM list";
   $result = $conn->query($sql);
-  $rows = array();
+
+  //select m.* from movie m, list l, user u where m.listId = l.id and l.userId = u.id;
 
   if ($result->num_rows > 0) {
-      // output data of each row
-      while($row = $result->fetch_assoc()) {
-          // echo "id: " . $row["id"]. " - Name: " . $row["name"]. "<br>";
-        $rows[] = $row;   
+    while($row = $result->fetch_assoc()) {
+      $rows[] = $row;
+
+      $movieSql = "SELECT m.* from movie m, list l, user u where m.listId = l.id and l.userId = u.id"; 
+      $movieResult = $conn->query($movieSql);
+      
+      if($movieResult->num_rows > 0) {
+        while($movie = $result->fetch_assoc()) {
+          $rows['movies'][] = $movie;
+        }
       }
+    }
     echo json_encode($rows);
   } else {
-      echo "0 results";
+    echo "0 results";
   }
   $conn->close();
 ?>
