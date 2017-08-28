@@ -15,14 +15,11 @@
   }
 
   $id = $_GET['id'];
-  $name = $_GET['name'];
-  $description = $_GET['description'];
-  $userId = $_GET['userId'];
 
-  $sql = "INSERT INTO list(id, name, description, userId) VALUES($id, '$name', '$description', $userId)";
+  $sql = "DELETE FROM list WHERE id = $id";
   
   if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+    echo "Record deleted successfully";
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
