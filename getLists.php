@@ -26,16 +26,17 @@
 
   if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-      $rows[] = $row;
+      // $rows[] = $row;
 
       $movieSql = "SELECT m.* from movie m, list l, user u where m.listId = l.id and l.userId = u.id"; 
       $movieResult = $conn->query($movieSql);
       
       if($movieResult->num_rows > 0) {
         while($movie = $result->fetch_assoc()) {
-          $rows[]['movies'] = $movie;
+          $row['movies'][] = $movie;
         }
       }
+      $rows[] = $row;
     }
     echo json_encode($rows);
   } else {
