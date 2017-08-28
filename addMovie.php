@@ -21,7 +21,7 @@
   $releaseDate = $_GET['releaseDate'];
   $posterPath = $_GET['posterPath'];
 
-  $sql = "INSERT INTO movie(id, title, overview, listId, releaseDate, posterPath) VALUES($id, '$name', '$overview', $listId, '$releaseDate', '$posterPath')";
+  $sql = "INSERT INTO movie(id, title, overview, listId, releaseDate, posterPath) VALUES($id, '$title', '$overview', $listId, '$releaseDate', '$posterPath')";
   
   if ($conn->query($sql) === TRUE) {
     echo "New record created successfully";
