@@ -16,5 +16,7 @@ CREATE TABLE movie (
   title VARCHAR(100),
   overview VARCHAR(1000),
   listId INTEGER NOT NULL,
+  releaseDate varchar(10),
+  posterPath varchar(100),
   PRIMARY KEY(id, listId)
 );

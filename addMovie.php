@@ -14,25 +14,20 @@
       die("Connection failed: " . $conn->connect_error);
   }
 
-  $title = $_GET['title'];
   $id = $_GET['id'];
+  $title = $_GET['title'];
   $overview = $_GET['overview'];
   $listId = $_GET['listId'];
+  $releaseDate = $_GET['releaseDate'];
+  $posterPath = $_GET['posterPath'];
 
-  // $sql = "SELECT * FROM user";
-  // $result = $conn->query($sql);
-  // $rows = array();
+  $sql = "INSERT INTO movie(id, title, overview, listId, releaseDate, posterPath) VALUES($id, '$name', '$overview', $listId, '$releaseDate', '$posterPath')";
+  
+  if ($conn->query($sql) === TRUE) {
+    echo "New record created successfully";
+  } else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+  }
 
-  // if ($result->num_rows > 0) {
-  //     // output data of each row
-  //     while($row = $result->fetch_assoc()) {
-  //         // echo "id: " . $row["id"]. " - Name: " . $row["name"]. "<br>";
-  //       $rows[] = $row;   
-  //     }
-  //   echo json_encode($rows);
-  // } else {
-  //     echo "0 results";
-  // }
-  echo $id;
   $conn->close();
 ?>
