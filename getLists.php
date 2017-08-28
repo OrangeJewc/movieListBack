@@ -1,5 +1,6 @@
 <?php
   header("Access-Control-Allow-Origin: *");
+
   $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
   $server = $url["host"];
@@ -16,8 +17,7 @@
   $rows = array();
   $listId = 1;
 
-  if(isset($_GET('listId')))
-    $listId = $_GET('listId');
+  $listId = $_GET['listId'];
 
   $sql = "SELECT * FROM list";
   $result = $conn->query($sql);
