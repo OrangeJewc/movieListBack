@@ -32,7 +32,7 @@
       $movieResult = $conn->query($movieSql);
       
       if($movieResult->num_rows > 0) {
-        while($movie = $result->fetch_assoc()) {
+        while($movie = $movieResult->fetch_assoc()) {
           $row['movies'][] = $movie;
         }
       }
