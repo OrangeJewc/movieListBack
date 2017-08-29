@@ -18,12 +18,12 @@
   $userId = $_GET['userId'];
   $sql = "";
 
-  if(strcmp($userId, 'all')) {
+  if(strcmp($userId, 'all') == 0) {
     $sql = "SELECT * FROM list";
   } else {
     $sql = "SELECT * FROM list WHERE userId = $userId";
   }
-  
+
   $result = $conn->query($sql);
 
   //select m.* from movie m, list l, user u where m.listId = l.id and l.userId = u.id;
