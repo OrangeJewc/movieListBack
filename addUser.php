@@ -17,9 +17,11 @@
   $name = $_GET['name'];
 
   $sql = "INSERT INTO user(name) VALUES('$name')";
+  $result = $conn->query($sql);
   
-  if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
+  if ($result === TRUE) {
+    echo json_encode($result.mysql_fetch_assoc());
+    // echo "New record created successfully";
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
