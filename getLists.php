@@ -15,10 +15,15 @@
   }
 
   $rows = array();
-
   $userId = $_GET['userId'];
+  $sql = "";
 
-  $sql = "SELECT * FROM list WHERE userId = $userId";
+  if(strcmp($userId, 'all')) {
+    $sql = "SELECT * FROM list";
+  } else {
+    $sql = "SELECT * FROM list WHERE userId = $userId";
+  }
+  
   $result = $conn->query($sql);
 
   //select m.* from movie m, list l, user u where m.listId = l.id and l.userId = u.id;
