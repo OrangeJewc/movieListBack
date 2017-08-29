@@ -27,7 +27,7 @@
     while($row = $result->fetch_assoc()) {
       // $rows[] = $row;
       $id = $row['id'];
-      $movieSql = "SELECT m.* from movie m, list l, user u where m.listId = $id and l.id = m.listId and l.userId = u.id and u.id = $userId"; 
+      $movieSql = "SELECT m.* from movie m, list l, user u where m.listId = $id and l.id = m.listId and l.userId = $userId"; 
       $movieResult = $conn->query($movieSql);
       
       if($movieResult->num_rows > 0) {
