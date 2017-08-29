@@ -15,13 +15,14 @@
   }
 
   $name = $_GET['name'];
+  $id = $_GET['id'];
 
-  $sql = "INSERT INTO user(name) VALUES('$name')";
+  $sql = "INSERT INTO user(id, name) VALUES($id, '$name')";
   $result = $conn->query($sql);
   
   if ($result === TRUE) {
-    echo $conn->insert_id;
-    // echo "New record created successfully";
+    // echo $conn->insert_id;
+    echo "New record created successfully";
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
