@@ -20,14 +20,14 @@
 
   $sql = "";
 
-  if(strcmp($type), "name") {
+  if(strcmp($type, "name") == 0) {
     $sql = "UPDATE list SET name = $text WHERE id = $id";
   } else if(strcmp($type, "description") == 0) {
     $sql = "UPDATE list SET description = $text WHERE id = $id";
   }
   
   if ($conn->query($sql) === TRUE) {
-    echo "List updated successfully";
+    echo "list updated successfully";
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
