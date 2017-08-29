@@ -20,8 +20,8 @@
   $result = $conn->query($sql);
   
   if ($result === TRUE) {
-    echo $result->fetch_assoc();
-    // echo "New record created successfully";
+    // echo $result->fetch_assoc();
+    echo "New record created successfully";
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
