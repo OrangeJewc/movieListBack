@@ -18,10 +18,12 @@
 
   $sql = "INSERT INTO user(name) VALUES('$name')";
   $result = $conn->query($sql);
+  $user = array();
   
   if ($result === TRUE) {
-    // echo $result->fetch_assoc();
-    echo "New record created successfully";
+    $user[] = $result->fetch_assoc();
+    echo json_encode($user);
+    // echo "New record created successfully";
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
   }
