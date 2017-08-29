@@ -16,11 +16,11 @@
 
   $name = $_GET['name'];
 
-  $sql = "INSERT INTO user(name) OUTPUT Inserted.id VALUES('$name')";
+  $sql = "INSERT INTO user(name) VALUES('$name')";
   $result = $conn->query($sql);
   
   if ($result === TRUE) {
-    echo $result;
+    echo $conn->insert_id;
     // echo "New record created successfully";
   } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
