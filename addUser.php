@@ -16,7 +16,7 @@
 
   $name = $_GET['name'];
 
-  $sql = "INSERT INTO user(name) OUTPUT * VALUES('$name')";
+  $sql = "INSERT INTO user(name) OUTPUT Inserted.id VALUES('$name')";
   $result = $conn->query($sql);
   
   if ($result === TRUE) {
