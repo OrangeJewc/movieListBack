@@ -15,9 +15,8 @@
   }
 
   $rows = array();
-  $listId = 1;
 
-  $listId = $_GET['listId'];
+  $userId = $_GET['userId'];
 
   $sql = "SELECT * FROM list";
   $result = $conn->query($sql);
@@ -28,7 +27,7 @@
     while($row = $result->fetch_assoc()) {
       // $rows[] = $row;
       $id = $row['id'];
-      $movieSql = "SELECT m.* from movie m, list l, user u where m.listId = $id and l.id = m.listId and l.userId = u.id"; 
+      $movieSql = "SELECT m.* from movie m, list l, user u where m.listId = $id and l.id = m.listId and l.userId = u.id and u.id = $userId"; 
       $movieResult = $conn->query($movieSql);
       
       if($movieResult->num_rows > 0) {
